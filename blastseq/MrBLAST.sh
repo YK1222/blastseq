@@ -2,7 +2,7 @@
 #本体、データベース、分類データのpathを定義
 BLAST="/Users/pcmf35/Desktop/16S"
 db="/Users/pcmf35/Documents/Research/BLAST"
-tax="/Users/pcmf35/Documents/Research/BLAST/LPSN_TAX.tsv"
+tax="/Users/pcmf35/Documents/Research/BLAST/TAX.tsv"
 
 #みんなが繰り返し使うことを前提とするため、無限ループ
 while true
@@ -80,7 +80,7 @@ join -t $'\t' piyo.tsv tab.tsv >> hoge.tsv
 #出力データのヘッダーを作成
 echo "Name\tKingdom\tPhylum\tClass\tOrder\tFamily\tGenus\tspecies\tTopHitStrain\tIdentity\tLength\tbitscore\tcoverage\tgap\tseqence" > "./output/${day}.tsv"
 
-#LPSNから事前に入手していた分類ファイルとBLASTデータを結合し、詳細な分類ツリーを付属させる。
+#事前に入手していた分類ファイルとBLASTデータを結合し、詳細な分類ツリーを付属させる。
 while read line;
 do
 genus=$(echo $line | awk -F '\t' '{print $2}')
